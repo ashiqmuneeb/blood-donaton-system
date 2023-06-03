@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation System</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        @media screen and (max-width: 600px) {
+            /* Responsive styles for smaller screens */
+            .container {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blood Donation System</h1>
+        <form id="donationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="bloodType">Blood Type:</label>
+                <select id="bloodType" required>
+                    <option value="">Select</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            <button type="submit">Donate</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript code
+        document.getElementById("donationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Retrieve form values
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var bloodType = document.getElementById("bloodType").value;
+            
+            // Perform form validation (you can add more validation logic here)
+            if (name === "" || email === "" || bloodType === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+            
+            // Perform further processing or send data to the server
+            
+            // Example: Display a thank you message
+            alert("Thank you, " + name + "! Your blood donation has been recorded.");
+            
+            // Reset the form
+            document.getElementById("donationForm").reset();
+        });
+    </script>
+</body>
+</html>
